@@ -596,9 +596,40 @@ const getUserNameDados = function (telefone) {
   } else {
     return listDadosUserNameJSON
   }
-
 }
+
+const getUserContacts = function (telefone) {
+  let telefone2 = telefone;
+  let contacts = []
+  let listContatosUserNameJSON;
+
+  contatos["whats-users"].forEach(function (user) {
+    telefone2 = user.number
+
+    user.contacts.forEach(function (listaContatosDados) {
+
+      if (telefone2 == telefone) {
+        listContatosUserNameJSON = {}
+
+        contacts.push(listaContatosDados.name)
+        contacts.push(listaContatosDados.description)
+        contacts.push(listaContatosDados.image)
+
+        listContatosUserNameJSON.contatos = contacts
+
+      }
+
+    })
+  })
+  if (listContatosUserNameJSON == undefined) {
+    return false
+  } else {
+    return listContatosUserNameJSON
+  }
+}
+
 
 // chamada das funções
 
-console.log(getUserNameDados('11987876567'))
+//console.log(getUserNameDados('11987876567'))
+console.log(getUserContacts('11987876567'))
