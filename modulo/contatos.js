@@ -619,7 +619,7 @@ const getUserContacts = function (telefone) {
           name: listaContatosDados.name,
           description: listaContatosDados.description,
           image: listaContatosDados.image,
-          messages: JSON.stringify(messages)
+          messages: messages
         };
         contacts.push(contato); 
       });
@@ -649,4 +649,7 @@ const getUserContacts = function (telefone) {
 // chamada das funções
 
 //console.log(getUserNameDados('11987876567'))
-console.log(getUserContacts('11987876567'))
+const {messages }  = getUserContacts('11987876567')
+
+
+console.table( messages[0].messages)
