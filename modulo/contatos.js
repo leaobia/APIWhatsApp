@@ -599,40 +599,49 @@ const getUserNameDados = function (telefone) {
 }
 
 const getUserContacts = function (telefone) {
-  let contacts = {};
+  let listDadosUserNameJSON;
+  const contacts = [];
 
   contatos["whats-users"].forEach(function (user) {
     if (user.number === telefone) {
       user.contacts.forEach(function (listaContatosDados) {
-        const name = listaContatosDados.name;
-        const description = listaContatosDados.description;
-        const image = listaContatosDados.image;
-
+        const messages = [];
         listaContatosDados.messages.forEach(function(mensagens){
-          const mensagens2 = []
-          mensagens2.push(mensagens.sender)
-          mensagens2.push(mensagens.content)
-          mensagens2.push(mensagens.time)
-
-          contacts[name] = {
-            description: description,
-            image: image,
-            telefone: telefone,
-            messages: mensagens2
+          const mensagem = {
+            sender: mensagens.sender,
+            content: mensagens.content,
+            time: mensagens.time
           };
-        })
-
-      
+          messages.push(mensagem);
+        });
+        
+        const contato = {
+          name: listaContatosDados.name,
+          description: listaContatosDados.description,
+          image: listaContatosDados.image,
+          messages: JSON.stringify(messages)
+        };
+        contacts.push(contato); 
       });
+      
+      listDadosUserNameJSON = {
+        name: user.nickname,
+        telefone: user.number,
+        description: user["profile-image"],
+        messages: contacts
+      };
     }
   });
 
-  if (contacts == undefined) {
+  if (listDadosUserNameJSON == undefined) { 
     return false;
   } else {
-    return contacts;
+    return listDadosUserNameJSON;
   }
 };
+
+
+
 
 
 
