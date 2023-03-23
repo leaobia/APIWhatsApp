@@ -649,7 +649,12 @@ const getUserContacts = function (telefone) {
 // chamada das funções
 
 //console.log(getUserNameDados('11987876567'))
-const {messages }  = getUserContacts('11987876567')
+// const {messages }  = getUserContacts('11987876567')
+// console.table( messages[0].messages)
 
+//console.log(getUserContacts('11987876567'))
 
-console.table( messages[0].messages)
+module.exports = {
+  getUserContacts,
+  getUserNameDados
+}
