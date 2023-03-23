@@ -31,13 +31,61 @@ app.use((request, response, next) => {
      // async -> estabelece um status de aguarde, assim que eu processar te devolvo os dados
         // Obs: se não usar o async, a requisição é perdida, pois front acha que a API está fora do ar
 
-   // EndPoint para listar contatos do user
-   app.get('/contatos', cors(), async function(request,response,next){
-    const contatos = require('./modulo/contatos.js')
-    let cidades = contatos.getUserContacts()
-    response.status(200);
-    response.json(cidades)
-})
+
+app.get('/contatos/:telefone', cors(), async function (request, response, next) {
+    let statusCode;
+    let dadosMensagens = {}
+    const contatoMensagem= require('./modulo/contatos.js')
+    let tel = request.params.telefone
+    let contato;
+  
+    if(tel == '' || tel == undefined  || isNaN(tel)){
+     // response.status(400);
+      statusCode = 400
+      dadosMensagens.message = 'Não foi possível processar, pois os dados de entrada enviados não correspondem ao exigido'
+    }else{
+       contato = contatoMensagem.getUserContacts(tel)
+    }
+     // tratamento para validar sucesso da requisição
+     if (contato) {
+      statusCode = 200
+      dadosMensagens = contato
+    } else {
+      statusCode = 404
+      dadosMensagens = "Não foi possível processar, pois os dados de entrada enviados não correspondem ao exigido"
+    }
+    response.status(statusCode)
+    response.json(dadosMensagens)
+  })
+// Endpoint que retorna a capital do estado
+
+app.get('/contatoDado/:telefone', cors(), async function (request, response, next) {
+    let statusCode;
+    let dadosMensagens = {}
+    const contatoMensagem= require('./modulo/contatos.js')
+    let tel = request.params.telefone
+    let contato;
+  
+    if(tel == '' || tel == undefined  || isNaN(tel)){
+     // response.status(400);
+      statusCode = 400
+      dadosMensagens.message = 'Não foi possível processar, pois os dados de entrada enviados não correspondem ao exigido'
+    }else{
+       contato = contatoMensagem.getUserNameDados(tel)
+    }
+     // tratamento para validar sucesso da requisição
+     if (contato) {
+      statusCode = 200
+      dadosMensagens = contato
+    } else {
+      statusCode = 404
+      dadosMensagens = "Não foi possível processar, pois os dados de entrada enviados não correspondem ao exigido"
+    }
+    response.status(statusCode)
+    response.json(dadosMensagens)
+  })
+
+
 
 app.listen(8080, function(){
     console.log('servidor aguardando requisições na porta')

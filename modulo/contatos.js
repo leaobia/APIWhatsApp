@@ -11,7 +11,7 @@ const contatos = {
           "end": "null"
         }
         ,
-        "profile-image": "img/contact1.png",
+        "profile-image": "img/profile1.png",
         "number": "11987876567",
         "background": "#fccc5b",
         "contacts":
@@ -212,7 +212,7 @@ const contatos = {
           "end": "null"
         }
         ,
-        "profile-image": "img/contact2.png",
+        "profile-image": "img/profile2.png",
         "number": "11966578996",
         "background": "#fccc5b",
         "contacts":
@@ -220,7 +220,7 @@ const contatos = {
             {
               "name": "José Maria da Silva",
               "description": "Developer",
-              "image": "img/contact10.png",
+              "image": "img/contact8.png",
               "messages": [
                 {
                   "sender": "me",
@@ -247,7 +247,7 @@ const contatos = {
             {
               "name": "John Guttemberg",
               "description": "Free",
-              "image": "img/contact20.png",
+              "image": "img/contact9.png",
               "messages": [
                 {
                   "sender": "me",
@@ -274,7 +274,7 @@ const contatos = {
             {
               "name": "George Mikael",
               "description": "Backend Developer",
-              "image": "img/contact30.png",
+              "image": "img/contact10.png",
               "messages": [
                 {
                   "sender": "me",
@@ -301,7 +301,7 @@ const contatos = {
             {
               "name": "Cristian Lee",
               "description": "Software Engineer",
-              "image": "img/contact4.png",
+              "image": "img/contact11.png",
               "messages": [
                 {
                   "sender": "me",
@@ -328,7 +328,7 @@ const contatos = {
             {
               "name": "Jonny Devited",
               "description": "Designer",
-              "image": "img/contact5.png",
+              "image": "img/contact12.png",
               "messages": [
                 {
                   "sender": "Jonny Devited",
@@ -355,7 +355,7 @@ const contatos = {
             {
               "name": "Shita Ling",
               "description": "Product Manager",
-              "image": "img/contact6.png",
+              "image": "img/contact13.png",
               "messages": [
                 {
                   "sender": "Shita Ling",
@@ -382,7 +382,7 @@ const contatos = {
             {
               "name": "Nilsen Silva",
               "description": "Marketing Manager",
-              "image": "img/contact7.png",
+              "image": "img/contact14.png",
               "messages": [
                 {
                   "sender": "Nilsen Silva",
@@ -413,7 +413,7 @@ const contatos = {
           "end": "null"
         }
         ,
-        "profile-image": "img/contact200.png",
+        "profile-image": "img/profile3.png",
         "number": "11955577796",
         "background": "#cc5bfc",
         "contacts":
@@ -421,7 +421,7 @@ const contatos = {
             {
               "name": "Peter Wilsen",
               "description": "Engineer",
-              "image": "img/contact4.png",
+              "image": "img/contact15.png",
               "messages": [
                 {
                   "sender": "me",
@@ -448,7 +448,7 @@ const contatos = {
             {
               "name": "Jonny Devited",
               "description": "Designer",
-              "image": "img/contact5.png",
+              "image": "img/profile4.png",
               "messages": [
                 {
                   "sender": "Jonny Devited",
@@ -475,7 +475,7 @@ const contatos = {
             {
               "name": "Franklin Silva",
               "description": "Product Manager",
-              "image": "img/contact6.png",
+              "image": "img/contact17.png",
               "messages": [
                 {
                   "sender": "Franklin Silva",
@@ -502,7 +502,7 @@ const contatos = {
             {
               "name": "Catarina Sousa",
               "description": "Marketing Manager",
-              "image": "img/contact7.png",
+              "image": "img/contact18.png",
               "messages": [
                 {
                   "sender": "Catarina Sousa",
@@ -533,7 +533,7 @@ const contatos = {
           "end": "null"
         }
         ,
-        "profile-image": "img/contact230.png",
+        "profile-image": "img/contact19.png",
         "number": "1194457796",
         "background": "#c00bfc",
         "contacts":
@@ -541,7 +541,7 @@ const contatos = {
             {
               "name": "Wally Gator",
               "description": "Free",
-              "image": "img/contact4.png",
+              "image": "img/contact13.png",
               "messages": [
                 {
                   "sender": "me",
@@ -624,12 +624,7 @@ const getUserContacts = function (telefone) {
         contacts.push(contato); 
       });
       
-      listDadosUserNameJSON = {
-        name: user.nickname,
-        telefone: user.number,
-        description: user["profile-image"],
-        messages: contacts
-      };
+      listDadosUserNameJSON = { contacts }
     }
   });
 
