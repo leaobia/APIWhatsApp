@@ -4,7 +4,7 @@ const contatos = {
       {
         "id": 1,
         "account": "Ricardo da Silva",
-        "nickname": "Ricky",
+        "nickname": "Bibis",
         "created-since":
         {
           "start": "2015-08-23",
